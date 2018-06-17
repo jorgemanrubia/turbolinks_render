@@ -1,7 +1,7 @@
 require 'application_system_test_case'
 
 class Turbolinks::Rails::Render::Test < ApplicationSystemTestCase
-  test "truth" do
+  test "Rendering should work when submitting a form with turbolinks" do
     visit new_task_path
     fill_in 'Title', with: ''
     click_on 'Create Task'
