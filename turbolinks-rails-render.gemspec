@@ -9,14 +9,15 @@ Gem::Specification.new do |s|
   s.version     = Turbolinks::Rails::Render::VERSION
   s.authors     = ["Jorge Manrubia"]
   s.email       = ["jorge.manrubia@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Turbolinks::Rails::Render."
-  s.description = "TODO: Description of Turbolinks::Rails::Render."
+  s.homepage    = "https://github.com/jorgemanrubia/turbolinks-rails-render"
+  s.summary     = "Use Rails render with Turbolinks"
+  s.description = "Use Rails render with Turbolinks"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 5.2.0"
+  s.add_dependency "turbolinks", "~> 5.1.1"
 
   s.add_development_dependency "sqlite3"
 end
