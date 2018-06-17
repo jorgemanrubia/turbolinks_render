@@ -2,7 +2,7 @@ module Turbolinks
   module Rendering
     module RenderWithTurbolinks
       def render(*args, &block)
-        if request.xhr? && !request.get?
+        if render_with_turbolinks?
           render_with_turbolinks(*args, &block)
         else
           super
@@ -10,6 +10,10 @@ module Turbolinks
       end
 
       private
+
+      def render_with_turbolinks?
+        request.xhr? && !request.get?
+      end
 
       def render_with_turbolinks(*args, &block)
         html = render_to_string(*args, &block)
