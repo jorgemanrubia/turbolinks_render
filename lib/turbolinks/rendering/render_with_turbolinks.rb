@@ -17,12 +17,12 @@ module Turbolinks
 
       def render_with_turbolinks(*args, &block)
         html = render_to_string(*args, &block)
-        self.response_body = turbolinks_response_to_render(html)
+        self.response_body = build_turbolinks_response_to_render(html)
         self.status = 200
         response.content_type = 'text/javascript'
       end
 
-      def turbolinks_response_to_render(html)
+      def build_turbolinks_response_to_render(html)
         escaped_html = ActionController::Base.helpers.j(html)
 
         <<-JS
