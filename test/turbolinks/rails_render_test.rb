@@ -1,7 +1,10 @@
-require 'test_helper'
+require 'application_system_test_case'
 
-class Turbolinks::Rails::Render::Test < ActiveSupport::TestCase
+class Turbolinks::Rails::Render::Test < ApplicationSystemTestCase
   test "truth" do
-    assert_kind_of Module, Turbolinks::Rails::Render
+    visit new_task_path
+    fill_in 'Title', with: ''
+    click_on 'Create Task'
+    assert_content "Title can't be blank"
   end
 end
