@@ -3,6 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
+require "turbolinks"
 require "turbolinks/rails_render"
 
 module Dummy

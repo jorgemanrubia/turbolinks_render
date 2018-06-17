@@ -155,6 +155,7 @@ DEPENDENCIES
   puma
   selenium-webdriver
   sqlite3
+  turbolinks
   turbolinks-rails-render!
 
 BUNDLED WITH
