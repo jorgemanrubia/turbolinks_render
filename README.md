@@ -21,7 +21,7 @@ $ bundle
 By default, when using `render`, the response is going to be handled by Turbolinks if these conditions are met:
 
 - It's an ajax request
-- It's not a `get` request (`put`, `post`, `patch`, `destroy`)
+- It's not a `get` request
 - It's not rendering json
 
 You can disable turbolinks for a given response: 
