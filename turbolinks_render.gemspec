@@ -5,7 +5,7 @@ require "turbolinks_render/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "turboilnks_render"
+  s.name        = "turbolinks_render"
   s.version     = TurbolinksRender::VERSION
   s.authors     = ["Jorge Manrubia"]
   s.email       = ["jorge.manrubia@gmail.com"]
