@@ -8,9 +8,7 @@ module TurbolinksRailsRender
 
     initializer :turbolinks_rails_render do |app|
       ActiveSupport.on_load(:action_controller) do
-        if app.config.turbolinks.auto_include
-          include Rendering
-        end
+        include Rendering
       end
     end
   end
