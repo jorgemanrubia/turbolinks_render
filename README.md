@@ -24,7 +24,7 @@ By default, `render` will be handled by Turbolinks if these conditions are met:
 - It's not a `get` request
 - It's not rendering json
 
-You can disable turbolinks for a given response: 
+You can disable turbolinks on a given request with: 
 
 ```ruby
 render turbolinks: false
@@ -38,7 +38,7 @@ You can invert the default behavior: never use turbolinks for rendering unless e
 Rails.application.config.turbolinks_render.render_with_turbolinks_by_default = false
 ```
 
-In this case, to use turbolinks in a given response you should write:
+In this case, to use turbolinks you should write:
 
 ```ruby
 render turbolinks: true
