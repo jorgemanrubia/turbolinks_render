@@ -44,6 +44,10 @@ In this case, to use turbolinks in a given response you should write:
 render turbolinks: true
 ```
 
+## Credits
+
+- [Implementation is based on this idea by @nerdcave](https://github.com/turbolinks/turbolinks/issues/85#issuecomment-298347900).  
+
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
