@@ -53,6 +53,10 @@ class TasksController < ApplicationController
     render turbolinks: false
   end
 
+  def update_with_json_response
+    render json: {result: 'ok'}
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task

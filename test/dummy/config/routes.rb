@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       post :update_with_turbolinks
       put :update_without_turbolinks
       post :update_without_turbolinks
+
+      put :update_with_json_response
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

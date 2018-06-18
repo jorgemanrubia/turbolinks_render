@@ -3,7 +3,7 @@ module TurbolinksRender
     extend ActiveSupport::Concern
 
     def render(*args, &block)
-      options = args.extract_options!
+      options = args.dup.extract_options!
       if render_with_turbolinks?(options)
         render_with_turbolinks(*args, &block)
       else
@@ -14,7 +14,16 @@ module TurbolinksRender
     private
 
     def render_with_turbolinks?(options)
-      request.xhr? && !request.get? && (options[:turbolinks] || (render_with_turbolinks_by_default? && options[:turbolinks] != false))
+      request_candidate_for_turbolinks? && !json_response?(options) &&
+          (options[:turbolinks] || (render_with_turbolinks_by_default? && options[:turbolinks] != false))
+    end
+
+    def request_candidate_for_turbolinks?
+      request.xhr? && !request.get?
+    end
+
+    def json_response?(options)
+      options[:json]
     end
 
     def render_with_turbolinks(*args, &block)

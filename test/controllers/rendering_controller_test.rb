@@ -14,4 +14,10 @@ class RenderingControllerTest < ActionDispatch::IntegrationTest
       assert_equal "text/html", @response.content_type
     end
   end
+
+  test "JSON responses are not handlded by Turbolinks" do
+    put update_with_json_response_tasks_url, xhr: true
+    assert_equal "application/json", @response.content_type
+    assert_equal 'ok', JSON.parse(@response.body)['result']
+  end
 end
