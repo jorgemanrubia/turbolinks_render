@@ -1,7 +1,7 @@
 require 'application_system_test_case'
 
 class TurbolinksRailsRender::RenderingTest < ApplicationSystemTestCase
-  test "Rendering should be handled by turbolinks when submitting an ajax form and turbolink rendering is enabled" do
+  test "Rendering should be handled by turbolinks when submitting an ajax form with turbolink rendering enabled" do
     with_default_option_for_rendering_with_turbolinks(true) do
       visit new_task_path
       fill_in 'Title', with: ''
@@ -10,7 +10,7 @@ class TurbolinksRailsRender::RenderingTest < ApplicationSystemTestCase
     end
   end
 
-  test "Rendering should not be handled by turbolinks work when submitting an ajax form and turbolink rendering is disabled" do
+  test "Rendering should not be handled by turbolinks when submitting an ajax form with turbolink rendering disabled" do
     with_default_option_for_rendering_with_turbolinks(false) do
       visit new_task_path
       fill_in 'Title', with: ''
