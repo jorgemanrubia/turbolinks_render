@@ -1,8 +1,8 @@
-# Turbolinks::Rails::Render
-Short description and motivation.
+# Turbolinks::RailsRender
 
-## Usage
-How to use my plugin.
+This gem lets you use regular `render` in your controller and handle the response with Turbolinks. 
+
+Turbolinks supports [`redirect_to`](https://github.com/turbolinks/turbolinks/blob/master/README.md#redirecting-after-a-form-submission) out of the box. But `render` is not supported and you have to use workarounds for common things like [dealing with forms](https://github.com/turbolinks/turbolinks/issues/85). This gem aims to fix that. 
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -16,13 +16,35 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install turboilnks_render
+## Usage
+
+By default, when using `render`, the response is going to be handled by Turbolinks if these conditions are met:
+
+- It's an ajax request
+- It's not a `get` request (`put`, `post`, `patch`, `destroy`)
+- It's not rendering json
+
+You can disable turbolinks for a given response: 
+
+```ruby
+render turbolinks:false
 ```
 
-## Contributing
-Contribution directions go here.
+### Configuration
+
+You can invert the default behavior: never use turbolinks for rendering unless explicitly indicated. Create a file `config/initializers/turbolinks_render.rb` and toggle `turbolinks_render.render_with_turbolinks_by_default`:
+
+```ruby
+Rails.application.config.turbolinks_render.render_with_turbolinks_by_default = false
+```
+
+In this case, to use turbolinks in a given response you should write:
+
+```ruby
+render turbolinks:false
+```
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
