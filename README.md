@@ -1,4 +1,4 @@
-# Turbolinks::RailsRender
+# turbolinks_render
 
 This gem lets you use regular `render` in your Rails controllers and handle the response with Turbolinks. 
 
