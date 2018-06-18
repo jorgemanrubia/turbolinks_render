@@ -24,6 +24,7 @@ class TurbolinksRailsRender::RenderingTest < ApplicationSystemTestCase
     original_value = Rails.application.config.turbolinks_render.render_with_turbolinks_by_default
     Rails.application.config.turbolinks_render.render_with_turbolinks_by_default = value
     yield
+  ensure
     Rails.application.config.turbolinks_render.render_with_turbolinks_by_default = original_value
   end
 end
