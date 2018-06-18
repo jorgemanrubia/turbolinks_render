@@ -8,7 +8,7 @@ class RenderingControllerTest < ActionDispatch::IntegrationTest
       assert_equal "text/javascript", @response.content_type
     end
 
-    test "Turbolinks rendering can be disabled with `turbolinks: false`" do
+    test "Turbolinks rendering can be disabled with `turbolinks: false` (for #{http_verb})" do
       send http_verb, update_without_turbolinks_tasks_url, xhr: true
       assert_select 'p', text: 'Without turbolinks!'
       assert_equal "text/html", @response.content_type

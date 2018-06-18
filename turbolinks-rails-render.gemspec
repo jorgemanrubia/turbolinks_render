@@ -1,12 +1,12 @@
 $:.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "turbolinks_rails_render/version"
+require "turbolinks_render/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "turbolinks-rails-render"
-  s.version     = TurbolinksRailsRender::VERSION
+  s.version     = TurbolinksRender::VERSION
   s.authors     = ["Jorge Manrubia"]
   s.email       = ["jorge.manrubia@gmail.com"]
   s.homepage    = "https://github.com/jorgemanrubia/turbolinks-rails-render"

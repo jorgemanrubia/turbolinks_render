@@ -1,8 +1,9 @@
-module TurbolinksRailsRender
+module TurbolinksRender
   module Rendering
     extend ActiveSupport::Concern
 
     def render(*args, &block)
+      Rails.logger.info "*"*1000
       options = args.extract_options!
       if render_with_turbolinks?(options)
         render_with_turbolinks(*args, &block)

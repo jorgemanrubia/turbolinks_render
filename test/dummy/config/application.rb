@@ -4,7 +4,7 @@ require 'rails/all'
 
 Bundler.require(*Rails.groups)
 require "turbolinks"
-require "turbolinks_rails_render"
+require "turbolinks_render"
 
 module Dummy
   class Application < Rails::Application
