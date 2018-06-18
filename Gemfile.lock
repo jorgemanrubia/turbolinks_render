@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    turbolinks-rails-render (0.1.0)
+    turboilnks_render (0.1.0)
       rails (~> 5.2.0)
       turbolinks-source (~> 5.1)
 
@@ -156,7 +156,7 @@ DEPENDENCIES
   selenium-webdriver
   sqlite3
   turbolinks
-  turbolinks-rails-render!
+  turboilnks_render!
 
 BUNDLED WITH
    1.16.1

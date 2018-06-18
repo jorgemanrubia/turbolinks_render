@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'turbolinks-rails-render'
+gem 'turboilnks_render'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install turbolinks-rails-render
+$ gem install turboilnks_render
 ```
 
 ## Contributing
