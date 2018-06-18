@@ -18,7 +18,7 @@ $ bundle
 
 ## Usage
 
-By default, when using `render`, the response is going to be handled by Turbolinks if these conditions are met:
+By default, `render` will be handled by Turbolinks if these conditions are met:
 
 - It's an ajax request
 - It's not a `get` request
