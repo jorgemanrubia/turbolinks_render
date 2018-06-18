@@ -22,6 +22,10 @@ module TurbolinksRender
       request.xhr? && !request.get?
     end
 
+    def render_with_turbolinks_by_default?
+      Rails.application.config.turbolinks_render.render_with_turbolinks_by_default
+    end
+
     def json_response?(options)
       options[:json]
     end
@@ -31,10 +35,6 @@ module TurbolinksRender
       self.response_body = build_turbolinks_response_to_render(html)
       self.status = 200
       response.content_type = 'text/javascript'
-    end
-
-    def render_with_turbolinks_by_default?
-      Rails.application.config.turbolinks_render.render_with_turbolinks_by_default
     end
 
     def build_turbolinks_response_to_render(html)
