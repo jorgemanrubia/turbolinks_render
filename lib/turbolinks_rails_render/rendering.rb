@@ -3,7 +3,8 @@ module TurbolinksRailsRender
     extend ActiveSupport::Concern
 
     def render(*args, &block)
-      if render_with_turbolinks?
+      options = args.extract_options!
+      if render_with_turbolinks?(options)
         render_with_turbolinks(*args, &block)
       else
         super
@@ -12,8 +13,8 @@ module TurbolinksRailsRender
 
     private
 
-    def render_with_turbolinks?
-      request.xhr? && !request.get? && Rails.application.config.turbolinks_render.render_with_turbolinks_by_default
+    def render_with_turbolinks?(options)
+      request.xhr? && !request.get? && (options[:turbolinks] || (render_with_turbolinks_by_default? && options[:turbolinks] != false))
     end
 
     def render_with_turbolinks(*args, &block)
@@ -21,6 +22,10 @@ module TurbolinksRailsRender
       self.response_body = build_turbolinks_response_to_render(html)
       self.status = 200
       response.content_type = 'text/javascript'
+    end
+
+    def render_with_turbolinks_by_default?
+      Rails.application.config.turbolinks_render.render_with_turbolinks_by_default
     end
 
     def build_turbolinks_response_to_render(html)
