@@ -1,5 +1,7 @@
-module Turbolinks
+module TurbolinksRailsRender
   module Rendering
+    extend ActiveSupport::Concern
+
     def render(*args, &block)
       if render_with_turbolinks?
         render_with_turbolinks(*args, &block)
@@ -11,7 +13,7 @@ module Turbolinks
     private
 
     def render_with_turbolinks?
-      request.xhr? && !request.get?
+      request.xhr? && !request.get? && Rails.application.config.turbolinks_render.render_with_turbolinks_by_default
     end
 
     def render_with_turbolinks(*args, &block)
@@ -38,5 +40,3 @@ module Turbolinks
     end
   end
 end
-
-AbstractController::Rendering.prepend(Turbolinks::Rendering)

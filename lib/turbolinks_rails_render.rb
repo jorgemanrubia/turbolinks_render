@@ -1,26 +1,15 @@
-require 'turbolinks/version'
-require 'turbolinks/rendering'
+require 'turbolinks_rails_render/version'
+require 'turbolinks_rails_render/rendering'
 
-module Turbolinks
-  module Controller
-    extend ActiveSupport::Concern
+module TurbolinksRailsRender
+  class Engine < ::Rails::Railtie
+    config.turbolinks_render = ActiveSupport::OrderedOptions.new
+    config.turbolinks_render.render_with_turbolinks_by_default = true
 
-    included do
-      include Redirection
-    end
-  end
-
-  class Engine < ::Rails::Engine
-    config.turbolinks = ActiveSupport::OrderedOptions.new
-    config.turbolinks.auto_include = true
-    config.assets.paths += [Turbolinks::Source.asset_path] if config.respond_to?(:assets)
-
-    initializer :turbolinks do |app|
+    initializer :turbolinks_rails_render do |app|
       ActiveSupport.on_load(:action_controller) do
         if app.config.turbolinks.auto_include
-          include Controller
-
-          ::ActionDispatch::Assertions.include ::Turbolinks::Assertions
+          include Rendering
         end
       end
     end
