@@ -2,7 +2,7 @@
 
 Use `render` in your Rails controllers and handle the response with Turbolinks. 
 
-Turbolinks supports [`redirect_to`](https://github.com/turbolinks/turbolinks/blob/master/README.md#redirecting-after-a-form-submission) out of the box. But `render` is not supported and you have to use workarounds for common things like [dealing with forms](https://github.com/turbolinks/turbolinks/issues/85). This gem aims to fix that. 
+Turbolinks supports [`redirect_to`](https://github.com/turbolinks/turbolinks/blob/master/README.md#redirecting-after-a-form-submission) out of the box. But `render` is not supported and you have to use [workarounds for common things like dealing with forms](https://github.com/turbolinks/turbolinks/issues/85). This gem aims to fix that. 
 
 ## Installation
 Add this line to your application's Gemfile:
