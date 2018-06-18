@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["jorge.manrubia@gmail.com"]
   s.homepage    = "https://github.com/jorgemanrubia/turboilnks_render"
   s.summary     = "Use Rails render with Turbolinks"
-  s.description = "Use Rails render with Turbolinks"
+  s.description = "Use render in your Rails controllers and handle the response with Turbolinks."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
