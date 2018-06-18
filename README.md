@@ -27,7 +27,7 @@ By default, when using `render`, the response is going to be handled by Turbolin
 You can disable turbolinks for a given response: 
 
 ```ruby
-render turbolinks:false
+render turbolinks: false
 ```
 
 ### Configuration
@@ -41,7 +41,7 @@ Rails.application.config.turbolinks_render.render_with_turbolinks_by_default = f
 In this case, to use turbolinks in a given response you should write:
 
 ```ruby
-render turbolinks:false
+render turbolinks: true
 ```
 
 ## License
