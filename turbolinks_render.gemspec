@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = TurbolinksRender::VERSION
   s.authors     = ["Jorge Manrubia"]
   s.email       = ["jorge.manrubia@gmail.com"]
-  s.homepage    = "https://github.com/jorgemanrubia/turboilnks_render"
+  s.homepage    = "https://github.com/jorgemanrubia/turbolinks_render"
   s.summary     = "Use Rails render with Turbolinks"
   s.description = "Use render in your Rails controllers and handle the response with Turbolinks."
   s.license     = "MIT"
