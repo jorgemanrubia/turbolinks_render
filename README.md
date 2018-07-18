@@ -10,7 +10,7 @@ I think Turbolinks/Rails should handle this officially. If you agree [you can vo
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'turboilnks_render'
+gem 'turbolinks_render'
 ```
 
 And then execute:
