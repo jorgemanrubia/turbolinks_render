@@ -24,6 +24,11 @@ By default, `render` will be handled by Turbolinks if these conditions are met:
 - It's not a `get` request
 - It's not rendering json
 
+When these conditions are met:
+
+- The body of the page is replaced with the rendered content with Javascript
+- An event `turbolinks:load` is dispatched
+
 You can disable turbolinks on a given request with: 
 
 ```ruby
