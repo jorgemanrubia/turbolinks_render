@@ -51,6 +51,10 @@ In this case, to use turbolinks you should write:
 render turbolinks: true
 ```
 
+## Example 
+
+An [example](https://github.com/jorgemanrubia/rails-form-validations-example) and an [explanatory blog post](https://www.jorgemanrubia.com/2019/02/16/form-validations-with-html5-and-modern-rails/) are also available.
+
 ## Credits
 
 - [Implementation based on this idea by @nerdcave](https://github.com/turbolinks/turbolinks/issues/85#issuecomment-298347900).  
