@@ -30,7 +30,7 @@ class TurbolinksRenderingTest < ApplicationSystemTestCase
     end
   end
 
-  test 'Script nodes in responses get executed' do
+  test '`<script>` elements in responses get executed' do
     with_default_option_for_rendering_with_turbolinks(true) do
       create_task_with_title 'force script response'
       assert_selector 'body[data-javascript-was-executed]'
