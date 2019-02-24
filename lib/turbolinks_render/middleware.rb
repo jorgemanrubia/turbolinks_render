@@ -20,10 +20,9 @@ module TurbolinksRender
     private
 
     def render_body_with_turbolinks(body)
-      body = build_turbolinks_response_to_render(body)
       @headers["Content-Type"] = 'text/javascript'
       @headers["Content-Length"] = body.length
-      body
+      build_turbolinks_response_to_render(body)
     end
 
     def empty_response?
