@@ -21,8 +21,9 @@ module TurbolinksRender
 
     def render_body_with_turbolinks(body)
       @headers["Content-Type"] = 'text/javascript'
-      @headers["Content-Length"] = body.length
-      build_turbolinks_response_to_render(body)
+      build_turbolinks_response_to_render(body).tap do |turbolinks_body|
+        @headers["Content-Length"] = turbolinks_body.length
+      end
     end
 
     def empty_response?
