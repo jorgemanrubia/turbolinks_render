@@ -8,7 +8,7 @@ before_script:
   - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
 env:
   - RAILS_VERSIOS=5.2.2
-  - RAILS_VERSION=6.0.0.beta1
+#  - RAILS_VERSION=6.0.0.beta1
 rvm:
  - 2.5.0
 install: bundle install
