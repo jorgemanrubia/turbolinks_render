@@ -26,7 +26,7 @@ By default, `render` will be handled by Turbolinks if these conditions are met:
 
 - It's an ajax request
 - It's not a `get` request
-- It's not rendering json
+- It generates an html response (`text/html` content type)
 
 When these conditions are met and `render` is used:
 
