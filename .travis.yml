@@ -11,3 +11,4 @@ env:
   - RAILS_VERSION=6.0.0.beta1
 rvm:
  - 2.5.0
+install: bundle install
