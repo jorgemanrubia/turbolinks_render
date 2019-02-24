@@ -26,7 +26,7 @@ class TurbolinksRenderingTest < ApplicationSystemTestCase
   test '500 errors are properly rendered' do
     with_default_option_for_rendering_with_turbolinks(true) do
       create_task_with_title 'force error 500'
-      assert_content "OMG this is a 500 error"
+      assert_content "We're sorry, but something went wrong"
     end
   end
 
