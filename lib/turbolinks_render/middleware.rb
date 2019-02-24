@@ -16,6 +16,7 @@ module TurbolinksRender
       if render_with_turbolinks?
         body = build_turbolinks_response_to_render(body)
         @headers["Content-Type"] = 'text/javascript'
+        @headers["Content-Length"] = body.length
       end
       [@status, @headers, [body]]
     end
