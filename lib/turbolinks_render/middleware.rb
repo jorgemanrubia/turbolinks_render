@@ -13,15 +13,18 @@ module TurbolinksRender
       return [@status, @headers, @response] if file? || (!@response.respond_to?(:body) && !@response.respond_to?(:[]))
 
       body = @response.respond_to?(:body) ? @response.body : @response[0]
-      if render_with_turbolinks?
-        body = build_turbolinks_response_to_render(body)
-        @headers["Content-Type"] = 'text/javascript'
-        @headers["Content-Length"] = body.length
-      end
+      body = render_body_with_turbolinks(body) if render_with_turbolinks?
       [@status, @headers, [body]]
     end
 
     private
+
+    def render_body_with_turbolinks(body)
+      body = build_turbolinks_response_to_render(body)
+      @headers["Content-Type"] = 'text/javascript'
+      @headers["Content-Length"] = body.length
+      body
+    end
 
     def empty_response?
       (@response.is_a?(Array) && @response.size <= 1) ||

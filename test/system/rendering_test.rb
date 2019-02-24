@@ -30,9 +30,9 @@ class TurbolinksRenderingTest < ApplicationSystemTestCase
   test '500 errors are properly rendered' do
     with_default_option_for_rendering_with_turbolinks(true) do
       visit new_task_path
-      fill_in 'Title', with: 'force error 5002'
+      fill_in 'Title', with: 'force error 500'
       click_on 'Create Task'
-      assert_content "Title can't be blank"
+      assert_content "OMG this is a 500 error"
     end
   end
 
