@@ -46,7 +46,10 @@ class TasksController < ApplicationController
   end
 
   def update_with_turbolinks
+  end
 
+  def update_with_turbolinks_forcing_it
+    render turbolinks: true
   end
 
   def update_without_turbolinks
