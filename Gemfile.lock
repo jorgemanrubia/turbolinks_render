@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    turbolinks_render (0.9.1)
+    turbolinks_render (0.9.9)
       rails (>= 5.2.0)
       turbolinks-source (~> 5.1)
 
@@ -161,4 +161,4 @@ DEPENDENCIES
   turbolinks_render!
 
 BUNDLED WITH
-   1.16.1
+   1.17.1
