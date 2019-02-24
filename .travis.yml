@@ -1,5 +1,8 @@
 language: ruby
 addons:
   chrome: stable
+env:
+  - "RAILS_VERSION: 5.2.2"
+  - "RAILS_VERSION: 6.0.0"
 rvm:
  - 2.5.0
