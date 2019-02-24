@@ -21,6 +21,8 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
+    raise "OMG this is a 500 error" if task_params[:title] == 'force error 500'
+
     @task = Task.new(task_params)
 
     if @task.save
@@ -58,6 +60,10 @@ class TasksController < ApplicationController
 
   def update_with_json_response
     render json: {result: 'ok'}
+  end
+
+  def update_with_500_error
+    raise "OMG this is a 500 error"
   end
 
   private
