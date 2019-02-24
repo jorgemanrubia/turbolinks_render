@@ -19,7 +19,6 @@ Rails.application.configure do
   }
 
   # Show full error reports and disable caching.
-  config.consider_all_requests_local = true
   config.action_controller.perform_caching = false
 
   # Raise exceptions instead of rendering exception templates.
@@ -47,4 +46,5 @@ Rails.application.configure do
 
   # We want to test real exception behavior and doing this on a per-tests basis does not seem to work reliably
   config.consider_all_requests_local = false
+  config.action_dispatch.show_exceptions = true
 end

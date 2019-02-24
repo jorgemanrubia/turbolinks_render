@@ -1,14 +1,6 @@
 require 'application_system_test_case'
 
 class TurbolinksRenderingTest < ApplicationSystemTestCase
-  def setup
-    Rails.application.config.action_dispatch.show_exceptions = true
-  end
-
-  def teardown
-    Rails.application.config.action_dispatch.show_exceptions = false
-  end
-
   test 'Rendering should be handled by turbolinks when submitting an ajax form with turbolink rendering enabled' do
     with_default_option_for_rendering_with_turbolinks(true) do
       create_task_with_title ''
