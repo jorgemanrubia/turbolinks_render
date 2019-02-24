@@ -3,6 +3,8 @@ $:.push File.expand_path("lib", __dir__)
 # Maintain your gem's version:
 require "turbolinks_render/version"
 
+rails_version = ENV["RAILS_VERSION"] || "5.2.0"
+
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "turbolinks_render"
@@ -16,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency 'rails', '>= 5.2.0'
+  s.add_dependency 'rails', ">= #{rails_version}"
   s.add_dependency 'turbolinks-source', '~> 5.1'
   
   s.add_development_dependency 'sqlite3'

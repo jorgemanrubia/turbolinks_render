@@ -21,12 +21,21 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params)
+    raise "OMG this is a 500 error" if task_params[:title] == 'force error 500'
 
-    if @task.save
-      redirect_to @task, notice: 'Task was successfully created.'
+    case task_params[:title]
+    when 'force error 500'
+      raise 'OMG this is a 500 error'
+    when 'force script response'
+      render 'response_with_script_tags'
     else
-      render :new
+      @task = Task.new(task_params)
+
+      if @task.save
+        redirect_to @task, notice: 'Task was successfully created.'
+      else
+        render :new
+      end
     end
   end
 
@@ -46,7 +55,10 @@ class TasksController < ApplicationController
   end
 
   def update_with_turbolinks
+  end
 
+  def update_with_turbolinks_forcing_it
+    render turbolinks: true
   end
 
   def update_without_turbolinks
@@ -57,14 +69,19 @@ class TasksController < ApplicationController
     render json: {result: 'ok'}
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
+  def update_with_500_error
+    raise "OMG this is a 500 error"
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def task_params
-      params.require(:task).permit(:title)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = Task.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def task_params
+    params.require(:task).permit(:title)
+  end
 end
