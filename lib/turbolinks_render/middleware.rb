@@ -58,15 +58,11 @@ module TurbolinksRender
             var nullDelegate = {viewInvalidated: nullCallback, viewWillRender: nullCallback, viewRendered: nullCallback};
           
             var renderer = new Turbolinks.SnapshotRenderer(currentSnapshot, newSpanshot, false);
-            renderer.delegate = nullDelegate;
-            if(renderer.shouldRender()){
-              renderer.render(nullCallback);
-            }
-            else{
+            if(!renderer.shouldRender()){
               renderer = new Turbolinks.ErrorRenderer(htmlContent);
-              renderer.delegate = nullDelegate;
-              renderer.render(nullCallback);
             }
+            renderer.delegate = nullDelegate;
+            renderer.render(nullCallback);
           }
           Turbolinks.clearCache();
           renderWithTurbolinks("#{escaped_html}");
