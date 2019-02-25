@@ -10,10 +10,10 @@ module TurbolinksRender
 
       @status, @headers, @response = @app.call(env)
 
-      return [@status, @headers, @response] if file? || (!@response.respond_to?(:body) && !@response.respond_to?(:[]))
+      return [@status, @headers, @response] if !render_with_turbolinks? || file? || !(@response.respond_to?(:body) || @response.respond_to?(:[]))
 
       body = @response.respond_to?(:body) ? @response.body : @response[0]
-      body = render_body_with_turbolinks(body) if render_with_turbolinks?
+      body = render_body_with_turbolinks(body)
       [@status, @headers, [body]]
     end
 
