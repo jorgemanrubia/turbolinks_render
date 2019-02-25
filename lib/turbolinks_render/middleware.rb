@@ -12,19 +12,22 @@ module TurbolinksRender
 
       return [@status, @headers, @response] unless render_with_turbolinks?
 
-      body = ''
-      @response.each{|part| body << part}
-      body = render_body_with_turbolinks(body)
-      [@status, @headers, [body]]
+      [@status, @headers, [render_body_with_turbolinks]]
     end
 
     private
 
-    def render_body_with_turbolinks(body)
+    def render_body_with_turbolinks
       @headers["Content-Type"] = 'text/javascript'
-      build_turbolinks_response_to_render(body).tap do |turbolinks_body|
+      build_turbolinks_response_to_render(response_body).tap do |turbolinks_body|
         @headers["Content-Length"] = turbolinks_body.bytesize
       end
+    end
+
+    def response_body
+      body = ''
+      @response.each{|part| body << part}
+      body
     end
 
     def render_with_turbolinks?
