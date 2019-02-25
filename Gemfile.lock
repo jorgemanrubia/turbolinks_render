@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    turbolinks_render (0.9.10)
+    turbolinks_render (0.9.11)
       rails (>= 5.2.0)
       turbolinks-source (~> 5.1)
 
