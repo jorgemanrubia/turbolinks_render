@@ -53,7 +53,7 @@ module TurbolinksRender
         (function(){
           function renderWithTurbolinks(htmlContent){
             var currentSnapshot = Turbolinks.Snapshot.fromHTMLElement(document.documentElement);
-            var newSpanshot = Turbolinks.Snapshot.fromHTMLString("#{escaped_html}");
+            var newSpanshot = Turbolinks.Snapshot.fromHTMLString(htmlContent);
             var nullCallback = function(){};
             var nullDelegate = {viewInvalidated: nullCallback, viewWillRender: nullCallback, viewRendered: nullCallback};
           
@@ -63,7 +63,7 @@ module TurbolinksRender
               renderer.render(nullCallback);
             }
             else{
-              renderer = new Turbolinks.ErrorRenderer("#{escaped_html}");
+              renderer = new Turbolinks.ErrorRenderer(htmlContent);
               renderer.delegate = nullDelegate;
               renderer.render(nullCallback);
             }
