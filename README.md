@@ -30,7 +30,7 @@ By default, `render` will be handled by Turbolinks if these conditions are met:
 
 When these conditions are met and `render` is used:
 
-- The body of the page is replaced with the rendered content with Javascript
+- The page content is replaced with the rendered content with Javascript. It uses Turbolinks to do this replacement, so it is pretty smart about keeping the `<head>` when it's identical, executing `<script>` elements, etc.
 - An event `turbolinks:load` is dispatched
 
 You can disable turbolinks on a given request with: 
