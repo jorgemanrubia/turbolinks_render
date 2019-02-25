@@ -22,7 +22,7 @@ module TurbolinksRender
     def render_body_with_turbolinks(body)
       @headers["Content-Type"] = 'text/javascript'
       build_turbolinks_response_to_render(body).tap do |turbolinks_body|
-        @headers["Content-Length"] = turbolinks_body.length
+        @headers["Content-Length"] = turbolinks_body.bytesize
       end
     end
 
@@ -49,16 +49,30 @@ module TurbolinksRender
 
     def build_turbolinks_response_to_render(html)
       escaped_html = ActionController::Base.helpers.j(html)
-
       <<-JS
-    (function(){
-      Turbolinks.clearCache();
-      document.open();
-      document.write("#{escaped_html}");
-      document.close();
-      Turbolinks.dispatch('turbolinks:load');
-      window.scroll(0, 0);
-    })();
+        (function(){
+          function renderWithTurbolinks(htmlContent){
+            var currentSnapshot = Turbolinks.Snapshot.fromHTMLElement(document.documentElement);
+            var newSpanshot = Turbolinks.Snapshot.fromHTMLString(htmlContent);
+            var nullCallback = function(){};
+            var nullDelegate = {viewInvalidated: nullCallback, viewWillRender: nullCallback, viewRendered: nullCallback};
+          
+            var renderer = new Turbolinks.SnapshotRenderer(currentSnapshot, newSpanshot, false);
+            renderer.delegate = nullDelegate;
+            if(renderer.shouldRender()){
+              renderer.render(nullCallback);
+            }
+            else{
+              renderer = new Turbolinks.ErrorRenderer(htmlContent);
+              renderer.delegate = nullDelegate;
+              renderer.render(nullCallback);
+            }
+          }
+          Turbolinks.clearCache();
+          renderWithTurbolinks("#{escaped_html}");
+          Turbolinks.dispatch('turbolinks:load');
+          window.scroll(0, 0);
+        })();
       JS
     end
 
