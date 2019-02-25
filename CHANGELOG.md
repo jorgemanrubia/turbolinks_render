@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.10
+
+- Use turbolinks code to replace page contents
+
 ## 0.9.9
 
 - Rewritten using a rack middleware instead of patching `render`. Thanks to @excid3. [PR](https://github.com/jorgemanrubia/turbolinks_render/pull/6)
