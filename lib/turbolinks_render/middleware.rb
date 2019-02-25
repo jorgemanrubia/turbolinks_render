@@ -14,13 +14,13 @@ module TurbolinksRender
 
       body = ''
       @response.each{|part| body << part}
-      body = build_turbolinks_js_response(body)
+      body = render_body_with_turbolinks(body)
       [@status, @headers, [body]]
     end
 
     private
 
-    def build_turbolinks_js_response(body)
+    def render_body_with_turbolinks(body)
       @headers["Content-Type"] = 'text/javascript'
       build_turbolinks_response_to_render(body).tap do |turbolinks_body|
         @headers["Content-Length"] = turbolinks_body.bytesize
