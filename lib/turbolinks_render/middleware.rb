@@ -6,13 +6,14 @@ module TurbolinksRender
 
     def call(env)
       @request = Rack::Request.new(env)
-      @request.set_header('X-Turbolinks-Render-Candidate', turbolinks_response_candidate?)
+      @request.set_header('X-Turbolinks-Render-Candidate', request_candidate_for_turbolinks?)
 
       @status, @headers, @response = @app.call(env)
 
-      return [@status, @headers, @response] if !render_with_turbolinks? || file? || !(@response.respond_to?(:body) || @response.respond_to?(:[]))
+      return [@status, @headers, @response] unless render_with_turbolinks?
 
-      body = @response.respond_to?(:body) ? @response.body : @response[0]
+      body = ''
+      @response.each{|part| body << part}
       body = render_body_with_turbolinks(body)
       [@status, @headers, [body]]
     end
@@ -26,20 +27,20 @@ module TurbolinksRender
       end
     end
 
-    def file?
-      @headers["Content-Transfer-Encoding"] == "binary"
+    def render_with_turbolinks?
+      request_candidate_for_turbolinks? && response_candidate_for_turbolinks? &&
+          (turbolinks_render_option || (render_with_turbolinks_by_default? && turbolinks_render_option != false))
     end
 
-    def render_with_turbolinks?
-      turbolinks_response_candidate? && html_response? && (turbolinks_render_option ||
-          (render_with_turbolinks_by_default? && turbolinks_render_option != false))
+    def response_candidate_for_turbolinks?
+      html_response?
     end
 
     def turbolinks_render_option
       @request.get_header('X-Turbolinks-Render-Option')
     end
 
-    def turbolinks_response_candidate?
+    def request_candidate_for_turbolinks?
       @request.xhr? && !@request.get?
     end
 
