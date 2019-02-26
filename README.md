@@ -53,13 +53,18 @@ In this case, to use turbolinks you should write:
 render turbolinks: true
 ```
 
+## Implementation notes
+
+- It configures a rack middleware that intercept requests and modify responses when the expected conditions are met.
+- It uses some internal Turbolinks classes to perform the rendering. This makes the DOM-update logic very smart but it could introduce problems with future Turbolink versions , since this does not belong to its public API. I'll do my best to keep things up to date.
+
 ## Example 
 
 An [example](https://github.com/jorgemanrubia/rails-form-validations-example) and an [explanatory blog post](https://www.jorgemanrubia.com/2019/02/16/form-validations-with-html5-and-modern-rails/) are also available.
 
 ## Credits
 
-- [Implementation based on this idea by @nerdcave](https://github.com/turbolinks/turbolinks/issues/85#issuecomment-298347900).  
+- Original implementation based on [this idea by @nerdcave](https://github.com/turbolinks/turbolinks/issues/85#issuecomment-298347900).
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
