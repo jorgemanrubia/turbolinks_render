@@ -15,7 +15,7 @@
 
 ## [0.9.9](https://github.com/jorgemanrubia/turbolinks_render/pull/6)
 
-- Rewritten using a rack middleware instead of patching `render`. Thanks to @excid3
+- Rewritten using a rack middleware instead of patching `render`. Thanks to @excid3 for detailed report.
 - Execute `<script>` elements in responses 
 
 ## 0.9.1
