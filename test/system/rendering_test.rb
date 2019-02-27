@@ -29,7 +29,7 @@ class TurbolinksRenderingTest < ApplicationSystemTestCase
     end
   end
 
-  test 'Empty responses will not clear the page' do
+  test 'Empty responses will not be handled by turbolinks (so they will not clear the page)' do
     with_default_option_for_rendering_with_turbolinks(true) do
       create_task_with_title 'force empty response'
       assert_content 'New Task'
