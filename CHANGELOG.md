@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.9.12](https://github.com/jorgemanrubia/turbolinks_render/issues/12)
+## [0.9.12](https://github.com/jorgemanrubia/turbolinks_render/pull/13)
 
 - Don't handle empty responses with Turbolinks
 
