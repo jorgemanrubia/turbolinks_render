@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.9.12](https://github.com/jorgemanrubia/turbolinks_render/issues/12)
+
+- Don't handle empty responses with Turbolinks
+
 ## [0.9.11](https://github.com/jorgemanrubia/turbolinks_render/pull/11)
 
 - Fix problem with active storage
