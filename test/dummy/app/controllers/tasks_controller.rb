@@ -28,6 +28,8 @@ class TasksController < ApplicationController
       raise 'OMG this is a 500 error'
     when 'force script response'
       render 'response_with_script_tags'
+    when 'force empty response'
+      head :ok, content_type: 'text/html'
     else
       @task = Task.new(task_params)
 

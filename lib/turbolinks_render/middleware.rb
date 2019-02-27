@@ -12,7 +12,7 @@ module TurbolinksRender
 
     Response = Struct.new(:status, :headers, :response) do
       def candidate_for_turbolinks?
-        html_response?
+        html_response? && !empty?
       end
 
       def turbolinks_body
@@ -21,14 +21,21 @@ module TurbolinksRender
 
       private
 
+      def empty?
+        body.blank?
+      end
+
       def html_response?
         headers['Content-Type'] =~ /text\/html/
       end
 
       def body
-        body = ''
-        response.each {|part| body << part}
-        body
+        @body ||= begin
+          body = ''
+          # Response does not have to be an Enumerable. It just has to respond to #each according to Rack spec
+          response.each {|part| body << part}
+          body
+        end
       end
 
       def js_code_to_render_html(html)
