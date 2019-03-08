@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.13
+
+- Make sure the content size is set as a string to [prevent problems with pow](https://github.com/basecamp/pow/issues/32).
+
 ## [0.9.12](https://github.com/jorgemanrubia/turbolinks_render/pull/13)
 
 - Don't handle empty responses with Turbolinks

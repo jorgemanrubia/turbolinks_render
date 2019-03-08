@@ -79,7 +79,7 @@ module TurbolinksRender
       return [rack_status, rack_headers, rack_response] unless render_with_turbolinks?(request, response)
 
       rack_headers["Content-Type"] = 'text/javascript'
-      rack_headers["Content-Length"] = response.turbolinks_body.bytesize
+      rack_headers["Content-Length"] = response.turbolinks_body.bytesize.to_s
 
       [rack_status, rack_headers, [response.turbolinks_body]]
     end
