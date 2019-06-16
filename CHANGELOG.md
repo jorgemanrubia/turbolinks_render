@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.9.14](https://github.com/jorgemanrubia/turbolinks_render/pull/15)
+
+- Trigger `turbolinks:before-cache` when rendering pages
+
 ## 0.9.13
 
 - Make sure the content size is set as a string to [prevent problems with pow](https://github.com/basecamp/pow/issues/32).
