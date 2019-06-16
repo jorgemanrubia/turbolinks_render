@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.9.14](https://github.com/jorgemanrubia/turbolinks_render/pull/15)
+## [0.9.15](https://github.com/jorgemanrubia/turbolinks_render/pull/15)
 
 - Trigger `turbolinks:before-cache` when rendering pages
 
