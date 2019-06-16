@@ -1,0 +1,138 @@
+require: rubocop-rspec
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Naming/BinaryOperatorParameterName:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+RSpec/FilePath:
+  Enabled: false
+
+Lint/UselessAccessModifier:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+RSpec/SubjectStub:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+# Replace some legits include? usages
+RSpec/PredicateMatcher:
+  Enabled: false
+
+# For some algo tests we do want to use instance_vars to capture data within algos
+RSpec/InstanceVariable:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Lint/HandleExceptions:
+  Enabled: false
+
+RSpec/BeforeAfterAll:
+  Enabled: false
+
+Lint/Loop:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  AllowUnusedKeywordArguments: true
+  IgnoreEmptyMethods: true
+
+Lint/NestedMethodDefinition:
+  Enabled: false
+
+Style/MethodMissingSuper:
+  Enabled: false
+
+RSpec/MultipleDescribes:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - "**/*.sql"
+    - "recipes/**/*"
+    - "db/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "bin/**/*"
+    - "log/**/*"
+    - "ansible/**/*"

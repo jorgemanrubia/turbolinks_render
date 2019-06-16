@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: %i[show edit update destroy]
 
   # GET /tasks
   def index
@@ -7,8 +7,7 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1
-  def show
-  end
+  def show; end
 
   # GET /tasks/new
   def new
@@ -16,12 +15,11 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tasks
   def create
-    raise "OMG this is a 500 error" if task_params[:title] == 'force error 500'
+    raise 'OMG this is a 500 error' if task_params[:title] == 'force error 500'
 
     case task_params[:title]
     when 'force error 500'
@@ -56,8 +54,7 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: 'Task was successfully destroyed.'
   end
 
-  def update_with_turbolinks
-  end
+  def update_with_turbolinks; end
 
   def update_with_turbolinks_forcing_it
     render turbolinks: true
@@ -68,11 +65,11 @@ class TasksController < ApplicationController
   end
 
   def update_with_json_response
-    render json: {result: 'ok'}
+    render json: { result: 'ok' }
   end
 
   def update_with_500_error
-    raise "OMG this is a 500 error"
+    raise 'OMG this is a 500 error'
   end
 
   private

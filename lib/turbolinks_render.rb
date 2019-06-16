@@ -31,4 +31,3 @@ module TurbolinksRender
     end
   end
 end
-

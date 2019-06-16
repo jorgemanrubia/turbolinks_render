@@ -26,14 +26,14 @@ module TurbolinksRender
       end
 
       def html_response?
-        headers['Content-Type'] =~ /text\/html/
+        headers['Content-Type'] =~ %r{text/html}
       end
 
       def body
         @body ||= begin
           body = ''
           # Response does not have to be an Enumerable. It just has to respond to #each according to Rack spec
-          response.each {|part| body << part}
+          response.each { |part| body << part }
           body
         end
       end
@@ -47,7 +47,7 @@ module TurbolinksRender
             var newSpanshot = Turbolinks.Snapshot.fromHTMLString(htmlContent);
             var nullCallback = function(){};
             var nullDelegate = {viewInvalidated: nullCallback, viewWillRender: nullCallback, viewRendered: nullCallback};
-          
+
             var renderer = new Turbolinks.SnapshotRenderer(currentSnapshot, newSpanshot, false);
             if(!renderer.shouldRender()){
               renderer = new Turbolinks.ErrorRenderer(htmlContent);
@@ -79,8 +79,8 @@ module TurbolinksRender
 
       return [rack_status, rack_headers, rack_response] unless render_with_turbolinks?(request, response)
 
-      rack_headers["Content-Type"] = 'text/javascript'
-      rack_headers["Content-Length"] = response.turbolinks_body.bytesize.to_s
+      rack_headers['Content-Type'] = 'text/javascript'
+      rack_headers['Content-Length'] = response.turbolinks_body.bytesize.to_s
 
       [rack_status, rack_headers, [response.turbolinks_body]]
     end
@@ -89,7 +89,7 @@ module TurbolinksRender
 
     def render_with_turbolinks?(request, response)
       request.candidate_for_turbolinks? && response.candidate_for_turbolinks? &&
-          (request.turbolinks_render_option || (render_with_turbolinks_by_default? && request.turbolinks_render_option != false))
+        (request.turbolinks_render_option || (render_with_turbolinks_by_default? && request.turbolinks_render_option != false))
     end
 
     def render_with_turbolinks_by_default?
