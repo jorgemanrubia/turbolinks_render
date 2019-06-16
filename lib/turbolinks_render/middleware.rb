@@ -56,6 +56,7 @@ module TurbolinksRender
             renderer.render(nullCallback);
           }
           Turbolinks.clearCache();
+          Turbolinks.dispatch('turbolinks:before-cache');
           renderWithTurbolinks("#{escaped_html}");
           Turbolinks.dispatch('turbolinks:load');
           window.scroll(0, 0);
