@@ -1,0 +1,60 @@
+version: 2.1
+defaults: &defaults
+  working_directory: ~/turbolinks_render
+  docker:
+    - image: circleci/ruby:2.6.2-node-browsers
+      environment:
+        BUNDLE_PATH: vendor/bundle
+        PGHOST: 127.0.0.1
+        PGUSER: turbolinks_render
+commands:
+  prepare:
+    description: "Common preparation steps"
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+jobs:
+  tests:
+    <<: *defaults
+    steps:
+      - prepare
+      - run:
+          name: run tests
+          command: bundle exec rake test
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+  rubocop:
+    <<: *defaults
+    steps:
+      - prepare
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - tests
+      - rubocop
+
+
+
+
