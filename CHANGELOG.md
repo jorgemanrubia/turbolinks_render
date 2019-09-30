@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.9.16](https://github.com/jorgemanrubia/turbolinks_render/pull/18)
+
+- Switch the order of scrolling and event triggering to enable persisting scroll
+
 ## [0.9.15](https://github.com/jorgemanrubia/turbolinks_render/pull/15)
 
 - Trigger `turbolinks:before-cache` when rendering pages

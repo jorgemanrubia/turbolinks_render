@@ -58,8 +58,8 @@ module TurbolinksRender
           Turbolinks.clearCache();
           Turbolinks.dispatch('turbolinks:before-cache');
           renderWithTurbolinks("#{escaped_html}");
-          Turbolinks.dispatch('turbolinks:load');
           window.scroll(0, 0);
+          Turbolinks.dispatch('turbolinks:load');
         })();
         JS
       end
