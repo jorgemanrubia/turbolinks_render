@@ -1,3 +1,3 @@
 module TurbolinksRender
-  VERSION = '0.9.16'.freeze
+  VERSION = '0.9.17'.freeze
 end
