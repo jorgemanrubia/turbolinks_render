@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.17
+
+- Bump versions for several dependencies
+
 ## [0.9.16](https://github.com/jorgemanrubia/turbolinks_render/pull/18)
 
 - Switch the order of scrolling and event triggering to enable persisting scroll
