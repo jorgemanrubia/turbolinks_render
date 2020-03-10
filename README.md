@@ -53,6 +53,14 @@ In this case, to use turbolinks you should write:
 render turbolinks: true
 ```
 
+You can also ignore specific paths in your application. This can be useful if you're using an engine and don't have access to its code to change the `render` calls. For instance, to ignore anything that starts with `/admin`:
+
+```ruby
+Rails.application.config.turbolinks_render.ignored_paths = [
+  '/admin'
+]
+```
+
 ## Implementation notes
 
 - It configures a rack middleware that intercept requests and modify responses when the expected conditions are met.
