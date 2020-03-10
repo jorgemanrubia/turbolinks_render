@@ -17,6 +17,7 @@ module TurbolinksRender
   class Engine < ::Rails::Railtie
     config.turbolinks_render = ActiveSupport::OrderedOptions.new
     config.turbolinks_render.render_with_turbolinks_by_default = true
+    config.turbolinks_render.ignored_paths = []
 
     initializer :turbolinks_render do |app|
       app.config.app_middleware.insert_before ActionDispatch::ShowExceptions, TurbolinksRender::Middleware
