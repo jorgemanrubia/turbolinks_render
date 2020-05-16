@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.9.2](https://github.com/jorgemanrubia/turbolinks_render/pull/27)
+
+- Add configuration to ignore paths (by Andrew Radev)
+
 ## 0.9.17
 
 - Bump versions for several dependencies
@@ -32,7 +36,7 @@
 ## [0.9.9](https://github.com/jorgemanrubia/turbolinks_render/pull/6)
 
 - Rewritten using a rack middleware instead of patching `render`. Thanks to @excid3 for detailed report.
-- Execute `<script>` elements in responses 
+- Execute `<script>` elements in responses
 
 ## 0.9.1
 
