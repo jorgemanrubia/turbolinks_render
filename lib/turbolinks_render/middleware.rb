@@ -8,6 +8,10 @@ module TurbolinksRender
       def turbolinks_render_option
         @turbolinks_render_option ||= request.get_header('X-Turbolinks-Render-Option')
       end
+
+      def fullpath
+        request.fullpath
+      end
     end
 
     Response = Struct.new(:status, :headers, :response) do
@@ -89,11 +93,16 @@ module TurbolinksRender
 
     def render_with_turbolinks?(request, response)
       request.candidate_for_turbolinks? && response.candidate_for_turbolinks? &&
+        ignored_paths.none? { |path| request.fullpath.starts_with?(path) } &&
         (request.turbolinks_render_option || (render_with_turbolinks_by_default? && request.turbolinks_render_option != false))
     end
 
     def render_with_turbolinks_by_default?
       Rails.application.config.turbolinks_render.render_with_turbolinks_by_default
+    end
+
+    def ignored_paths
+      Rails.application.config.turbolinks_render.ignored_paths
     end
   end
 end

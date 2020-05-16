@@ -6,6 +6,8 @@ Rails.application.routes.draw do
         send verb, :update_with_turbolinks_forcing_it
         send verb, :update_without_turbolinks
         send verb, :update_with_json_response
+        send verb, :update_ignored
+        send verb, 'update_ignored/subpath', action: 'update_ignored_subpath'
       end
     end
   end

@@ -72,6 +72,12 @@ class TasksController < ApplicationController
     raise 'OMG this is a 500 error'
   end
 
+  def update_ignored; end
+
+  def update_ignored_subpath
+    render action: 'update_ignored'
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
