@@ -18,7 +18,10 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'rails', ">= #{rails_version}"
+  s.add_dependency 'railties', ">= #{rails_version}"
+  s.add_dependency 'activesupport', ">= #{rails_version}"
+  s.add_dependency 'actionpack', ">= #{rails_version}"
+  
   s.add_dependency 'turbolinks-source', '~> 5.1'
 
   s.add_development_dependency 'capybara'
