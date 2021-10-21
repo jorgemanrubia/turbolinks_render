@@ -49,14 +49,15 @@ module TurbolinksRender
           function renderWithTurbolinks(htmlContent){
             var currentSnapshot = Turbolinks.Snapshot.fromHTMLElement(document.documentElement);
             var newSpanshot = Turbolinks.Snapshot.fromHTMLString(htmlContent);
-            var nullCallback = function(){};
-            var nullDelegate = {viewInvalidated: nullCallback, viewWillRender: nullCallback, viewRendered: nullCallback};
+            var nullCallback = function() {}
+            var afterRender = function(){ Turbolinks.dispatch('turbolinks:render') };
+            var delegate = {viewInvalidated: nullCallback, viewWillRender: nullCallback, viewRendered: afterRender};
 
             var renderer = new Turbolinks.SnapshotRenderer(currentSnapshot, newSpanshot, false);
             if(!renderer.shouldRender()){
               renderer = new Turbolinks.ErrorRenderer(htmlContent);
             }
-            renderer.delegate = nullDelegate;
+            renderer.delegate = delegate;
             renderer.render(nullCallback);
           }
           Turbolinks.clearCache();
